@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entidades;
 using System.Data;
 using System.Data.SqlClient;
-using Entidades;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
@@ -129,7 +126,8 @@ namespace Datos
                                 ,@direccionEmpresa
                                 ,@coordenadasEmpresa
                                 ,@descripcionEmpresa
-                                ,@telefonoEmpresa)";
+                                ,@telefonoEmpresa);
+                                SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("@nombreEmpresa", empresa.NOMBRE_EMP);
                 cmd.Parameters.AddWithValue("@direccionEmpresa", empresa.DIRECCION_EMP);
@@ -140,12 +138,11 @@ namespace Datos
 
                 int idEmpresa = Convert.ToInt32(cmd.ExecuteScalar());
                 empresa.ID_EMP = idEmpresa;
+                conexion.Close();
 
                 return empresa;
-
-                cmd.ExecuteNonQuery();
-
-                conexion.Close();
+                
+                
                 
             }
             catch (Exception ex)

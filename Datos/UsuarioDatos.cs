@@ -280,12 +280,15 @@ namespace Datos
                                  ,[TELEFONO_CLI]
                                  ,[ID_EMPRESA])
                                 VALUES
-                                (@nombreusuario
+                                (@nombreUsuario
+                                ,@claveUsuario
+                                ,@rolUsuario
+                                ,@cedulaUsuario
                                 ,@nombrecliente
-                                ,@apellidocliente
-                                ,@clavecliente
-                                ,@direccioncliente
-                                ,@telefonocliente)";
+                                ,@apellidocliente                                                                
+                                ,@telefonocliente
+                                ,@idEmpresa);
+                                SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("@nombreUsuario", usu.NOMBRE_USU);
                 cmd.Parameters.AddWithValue("@claveUsuario", usu.CLAVE_USU);
@@ -297,13 +300,11 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@idEmpresa", usu.ID_EMPRESA);
 
                 int idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
-                usu.ID_USU = idUsuario;
+                usu.ID_USU = idUsuario;                
+                conexion.Close();
 
                 return usu;
 
-                cmd.ExecuteNonQuery();
-
-                conexion.Close();
 
             }
             catch (Exception ex)

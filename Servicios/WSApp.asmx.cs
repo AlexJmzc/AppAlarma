@@ -32,9 +32,9 @@ namespace Servicios
         }
 
         [WebMethod]
-        public Empresa NuevaEmpresa(int id, string nombre, string direccion, string coordenadas, string descripcion, string telefono)
+        public Empresa NuevaEmpresa(string nombre, string direccion, string coordenadas, string descripcion, string telefono)
         {
-            Empresa empresa = new Empresa(id, nombre, direccion, coordenadas, descripcion, telefono);
+            Empresa empresa = new Empresa(nombre, direccion, coordenadas, descripcion, telefono);
             return EmpresaLogica.NuevaEmpresa(empresa);
         }
 
@@ -82,9 +82,9 @@ namespace Servicios
         }
 
         [WebMethod]
-        public Usuario Nuevo(int id, string nombreUsu, string clave, string rol, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
+        public Usuario Nuevo(string nombreUsu, string clave, string rol, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
         {
-            Usuario usu = new Usuario(id, nombreUsu, clave, rol, cedula, nombre, apellido, telefono, idEmpresa);
+            Usuario usu = new Usuario(nombreUsu, clave, rol, cedula, nombre, apellido, telefono, idEmpresa);
             return UsuarioLogica.Nuevo(usu);
         }
 
