@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -16,6 +12,17 @@ namespace Entidades
         public Incidencia(int iD_INCIDENCIA, int iD_USU, int iD_EMPRESA, string nOMBRE_EMPRESA, string cOORDENADAS, DateTime fECHA, string eSTADO)
         {
             ID_INCIDENCIA = iD_INCIDENCIA;
+            ID_USU = iD_USU;
+            ID_EMPRESA = iD_EMPRESA;
+            NOMBRE_EMPRESA = nOMBRE_EMPRESA;
+            COORDENADAS = cOORDENADAS;
+            FECHA = fECHA;
+            ESTADO = eSTADO;
+        }
+
+        public Incidencia(int iD_USU, int iD_EMPRESA, string nOMBRE_EMPRESA, string cOORDENADAS, DateTime fECHA, string eSTADO)
+        {
+
             ID_USU = iD_USU;
             ID_EMPRESA = iD_EMPRESA;
             NOMBRE_EMPRESA = nOMBRE_EMPRESA;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Usuario
     {
@@ -27,7 +21,7 @@ namespace Entidades
         }
 
         public Usuario(string nOMBRE_USU, string cLAVE_USU, string rOL_USU, string cEDULA_USU, string nOMBRE_CLI, string aPELLIDO_CLI, string tELEFONO_CLI, int iD_EMPRESA)
-        {            
+        {
             NOMBRE_USU = nOMBRE_USU;
             CLAVE_USU = cLAVE_USU;
             ROL_USU = rOL_USU;

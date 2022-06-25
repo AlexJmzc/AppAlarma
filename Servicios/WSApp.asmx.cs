@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
-using Entidades;
+﻿using Entidades;
 using Logica;
+using System;
+using System.Collections.Generic;
+using System.Web.Services;
 
 namespace Servicios
 {
@@ -102,68 +100,68 @@ namespace Servicios
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidencias()
+        public List<Incidencia> DevolverListaIncidencias()
         {
             return IncidenciaLogica.DevolverListaIncidencias();
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasEmpresa(int id)
+        public List<Incidencia> DevolverListaIncidenciasEmpresa(int id)
         {
             return IncidenciaLogica.DevolverListaIncidenciasEmpresa(id);
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasUsuario(int id)
+        public List<Incidencia> DevolverListaIncidenciasUsuario(int id)
         {
             return IncidenciaLogica.DevolverListaIncidenciasUsuario(id);
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasNombreEmpresa(string nombre)
+        public List<Incidencia> DevolverListaIncidenciasNombreEmpresa(string nombre)
         {
             return IncidenciaLogica.DevolverListaIncidenciasNombreEmpresa(nombre);
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasFecha(DateTime fecha)
+        public List<Incidencia> DevolverListaIncidenciasFecha(DateTime fecha)
         {
             return IncidenciaLogica.DevolverListaIncidenciasFecha(fecha);
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasCoordenadas(string coordenadas)
+        public List<Incidencia> DevolverListaIncidenciasCoordenadas(string coordenadas)
         {
             return IncidenciaLogica.DevolverListaIncidenciasCoordenadas(coordenadas);
         }
 
         [WebMethod]
-        public static List<Incidencia> DevolverListaIncidenciasEstado(string estado)
+        public List<Incidencia> DevolverListaIncidenciasEstado(string estado)
         {
             return IncidenciaLogica.DevolverListaIncidenciasEstado(estado);
         }
 
         [WebMethod]
-        public static Incidencia DevolverIncidenciaID(int id)
+        public Incidencia DevolverIncidenciaID(int id)
         {
             return IncidenciaLogica.DevolverIncidenciaID(id);
         }
 
         [WebMethod]
-        public static Incidencia Nuevo(int id, int idUsuario, int idEmpresa, string nombreEmpresa, string coordenadas, DateTime fecha, string estado)
+        public Incidencia Nuevo(int idUsuario, int idEmpresa, string nombreEmpresa, string coordenadas, DateTime fecha, string estado)
         {
-            Incidencia incidencia = new Incidencia(id, idUsuario, idEmpresa, nombreEmpresa, coordenadas, fecha, estado);
+            Incidencia incidencia = new Incidencia(idUsuario, idEmpresa, nombreEmpresa, coordenadas, fecha, estado);
             return IncidenciaLogica.Nuevo(incidencia);
         }
 
         [WebMethod]
-        public static void ActualizarEstado(int id, string estado)
+        public void ActualizarEstado(int id, string estado)
         {
             IncidenciaLogica.ActualizarEstado(id, estado);
         }
 
         [WebMethod]
-        public static void EliminarIncidencia(int id)
+        public void EliminarIncidencia(int id)
         {
             IncidenciaLogica.EliminarIncidencia(id);
         }

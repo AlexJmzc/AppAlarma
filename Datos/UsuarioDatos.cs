@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
@@ -300,7 +297,7 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@idEmpresa", usu.ID_EMPRESA);
 
                 int idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
-                usu.ID_USU = idUsuario;                
+                usu.ID_USU = idUsuario;
                 conexion.Close();
 
                 return usu;
@@ -362,7 +359,7 @@ namespace Datos
 
         }
 
-        
+
 
     }
 }

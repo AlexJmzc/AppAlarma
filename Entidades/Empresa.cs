@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Empresa
     {
@@ -24,7 +18,7 @@ namespace Entidades
         }
 
         public Empresa(string nOMBRE_EMP, string dIRECCION_EMP, string cOORDENADAS_EMP, string dESCRIPCION_EMP, string tELEFONO_EMP)
-        {            
+        {
             NOMBRE_EMP = nOMBRE_EMP;
             DIRECCION_EMP = dIRECCION_EMP;
             COORDENADAS_EMP = cOORDENADAS_EMP;

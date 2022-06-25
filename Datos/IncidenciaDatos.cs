@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
@@ -397,13 +394,13 @@ namespace Datos
 
                 using (var dr = cmd.ExecuteReader())
                 {
-                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
-                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
-                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
-                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
-                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
-                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
-                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                    incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                    incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                    incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                    incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                    incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                    incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                    incidencia.ESTADO = dr["ESTADO_INC"].ToString();
                 }
 
 

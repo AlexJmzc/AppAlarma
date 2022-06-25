@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
-using Entidades;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -134,16 +134,16 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@coordenadasEmpresa", empresa.COORDENADAS_EMP);
                 cmd.Parameters.AddWithValue("@descripcionEmpresa", empresa.DESCRIPCION_EMP);
                 cmd.Parameters.AddWithValue("@telefonoEmpresa", empresa.TELEFONO_EMP);
-                
+
 
                 int idEmpresa = Convert.ToInt32(cmd.ExecuteScalar());
                 empresa.ID_EMP = idEmpresa;
                 conexion.Close();
 
                 return empresa;
-                
-                
-                
+
+
+
             }
             catch (Exception ex)
             {
