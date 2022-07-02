@@ -80,7 +80,7 @@ namespace Servicios
         }
 
         [WebMethod]
-        public Usuario Nuevo(string nombreUsu, string clave, string rol, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
+        public Usuario NuevoUsuario(string nombreUsu, string clave, string rol, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
         {
             Usuario usu = new Usuario(nombreUsu, clave, rol, cedula, nombre, apellido, telefono, idEmpresa);
             return UsuarioLogica.Nuevo(usu);
@@ -148,7 +148,7 @@ namespace Servicios
         }
 
         [WebMethod]
-        public Incidencia Nuevo(int idUsuario, int idEmpresa, string nombreEmpresa, string coordenadas, DateTime fecha, string estado)
+        public Incidencia NuevaIncidencia(int idUsuario, int idEmpresa, string nombreEmpresa, string coordenadas, DateTime fecha, string estado)
         {
             Incidencia incidencia = new Incidencia(idUsuario, idEmpresa, nombreEmpresa, coordenadas, fecha, estado);
             return IncidenciaLogica.Nuevo(incidencia);

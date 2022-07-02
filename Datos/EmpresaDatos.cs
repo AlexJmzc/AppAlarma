@@ -38,6 +38,7 @@ namespace Datos
                         empresa.COORDENADAS_EMP = dr["COORDENADAS_EMP"].ToString();
                         empresa.DESCRIPCION_EMP = dr["DESCRIPCION_EMP"].ToString();
                         empresa.TELEFONO_EMP = dr["TELEFONO_EMP"].ToString();
+                      
                         lista.Add(empresa);
                     }
                 }

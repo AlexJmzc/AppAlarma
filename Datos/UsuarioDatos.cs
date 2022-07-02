@@ -19,10 +19,11 @@ namespace Datos
             cmd.CommandText = @"SELECT [NOMBRE_USU]
                               ,[CLAVE_USU]
                               FROM [dbo].[Usuarios]
-                              WHERE NOMBRE_USU = @usuario AND CLAVE_USU = @clave";
+                              WHERE NOMBRE_USU = @usuario AND CLAVE_USU = @clave AND ROL_USU = @rol";
 
             cmd.Parameters.AddWithValue("usuario", usuario);
             cmd.Parameters.AddWithValue("clave", clave);
+            cmd.Parameters.AddWithValue("rol", "Administrador");
 
             using (var dr = cmd.ExecuteReader())
             {
@@ -319,7 +320,11 @@ namespace Datos
             cmd.Connection = conexion;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = @"UPDATE [dbo].[Usuarios]
-                             SET [NOMBRE_CLI] = @nombreCli,
+                             SET 
+                                 [NOMBRE_USU] = @nombreUsu,
+                                 [CLAVE_USU] = @claveUsu,
+                                 [ROL_USU] = @rolUsu,
+                                 [NOMBRE_CLI] = @nombreCli,
                                  [APELLIDO_CLI] = @apellidoCli,
                                  [TELEFONO_CLI] = @telefonoCli,
                                  [ID_EMPRESA] = @idEmpresa
@@ -327,6 +332,9 @@ namespace Datos
 
             cmd.Parameters.AddWithValue("@idUsuario", usu.ID_USU);
             cmd.Parameters.AddWithValue("@cedula", usu.CEDULA_USU);
+            cmd.Parameters.AddWithValue("@nombreUsu", usu.NOMBRE_USU);
+            cmd.Parameters.AddWithValue("@claveUsu", usu.CLAVE_USU);
+            cmd.Parameters.AddWithValue("@rolUsu", usu.ROL_USU);
             cmd.Parameters.AddWithValue("@nombreCli", usu.NOMBRE_CLI);
             cmd.Parameters.AddWithValue("@apellidoCLi", usu.APELLIDO_CLI);
             cmd.Parameters.AddWithValue("@telefonoCli", usu.TELEFONO_CLI);
