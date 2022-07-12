@@ -11,6 +11,16 @@ namespace Logica
             return EmpresaDatos.DevolverListaEmpresas();
         }
 
+        public static List<Empresa> DevolverListaEmpresasEstado(string estado)
+        {
+            return EmpresaDatos.DevolverListaEmpresasEstado(estado);
+        }
+
+        public static Empresa ActualizarEstado(Empresa empresa)
+        {
+            return EmpresaDatos.ActualizarEstado(empresa);
+        }
+
         public static Empresa DevolverEmpresa(int id)
         {
             return EmpresaDatos.DevolverEmpresa(id);

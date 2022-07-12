@@ -11,6 +11,16 @@ namespace Logica
             return UsuarioDatos.IniciarSesion(usuario, clave);
         }
 
+        public static List<Usuario> DevolverListaUsuariosEstado(string estado)
+        {
+            return UsuarioDatos.DevolverListaUsuariosEstado(estado);
+        }
+
+        public static Usuario ActualizarEstadoUsuario(Usuario usu)
+        {
+            return UsuarioDatos.ActualizarEstadoUsuario(usu);
+        }
+
         public static List<Usuario> DevolverListaUsuarios()
         {
             return UsuarioDatos.DevolverListaUsuarios();

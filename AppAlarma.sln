@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{E73B3E26-D1FF-45A0-B961-C089C134DEC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "Servicios\Servicios.csproj", "{2AAD2D79-67FB-4C85-83E5-6A511598F302}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escritorio", "Escritorio\Escritorio.csproj", "{F7A19A4F-43C6-4C27-A2A1-6F9D7D99F58E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiciosApp", "WCFServiciosApp\WCFServiciosApp.csproj", "{60A99A93-E6A4-4C54-A1DF-6FE1030BE1B5}"
@@ -33,10 +31,6 @@ Global
 		{E73B3E26-D1FF-45A0-B961-C089C134DEC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E73B3E26-D1FF-45A0-B961-C089C134DEC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E73B3E26-D1FF-45A0-B961-C089C134DEC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AAD2D79-67FB-4C85-83E5-6A511598F302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AAD2D79-67FB-4C85-83E5-6A511598F302}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AAD2D79-67FB-4C85-83E5-6A511598F302}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AAD2D79-67FB-4C85-83E5-6A511598F302}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7A19A4F-43C6-4C27-A2A1-6F9D7D99F58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7A19A4F-43C6-4C27-A2A1-6F9D7D99F58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7A19A4F-43C6-4C27-A2A1-6F9D7D99F58E}.Release|Any CPU.ActiveCfg = Release|Any CPU

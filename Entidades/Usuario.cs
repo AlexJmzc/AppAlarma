@@ -20,7 +20,7 @@
             ID_EMPRESA = iD_EMPRESA;
         }
 
-        public Usuario(string nOMBRE_USU, string cLAVE_USU, string rOL_USU, string cEDULA_USU, string nOMBRE_CLI, string aPELLIDO_CLI, string tELEFONO_CLI, int iD_EMPRESA)
+        public Usuario(string nOMBRE_USU, string cLAVE_USU, string rOL_USU, string cEDULA_USU, string nOMBRE_CLI, string aPELLIDO_CLI, string tELEFONO_CLI, int iD_EMPRESA, string eSTADO)
         {
             NOMBRE_USU = nOMBRE_USU;
             CLAVE_USU = cLAVE_USU;
@@ -30,6 +30,7 @@
             APELLIDO_CLI = aPELLIDO_CLI;
             TELEFONO_CLI = tELEFONO_CLI;
             ID_EMPRESA = iD_EMPRESA;
+            ESTADO = eSTADO;
         }
 
         public int ID_USU { get; set; }
@@ -41,5 +42,6 @@
         public string APELLIDO_CLI { get; set; }
         public string TELEFONO_CLI { get; set; }
         public int ID_EMPRESA { get; set; }
+        public string ESTADO { get; set; }
     }
 }

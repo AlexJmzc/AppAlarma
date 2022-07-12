@@ -215,7 +215,230 @@ namespace Datos
 
         }
 
-        public static List<Incidencia> DevolverListaIncidenciasFecha(DateTime fecha)
+
+        public static List<Incidencia> DevolverListaIncidenciasEmpresaFecha(string nombre, string fecha)
+        {
+            try
+            {
+                List<Incidencia> lista = new List<Incidencia>();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_INCIDENCIA]
+                                      ,[ID_USU]
+                                      ,[ID_EMPRESA]
+                                      ,[NOMBRE_EMPRESA]
+                                      ,[COORDENADAS]
+                                      ,[FECHA_INC]
+                                      ,[ESTADO_INC]
+                                    FROM [dbo].[Incidencias] WHERE [NOMBRE_EMPRESA] = @nombre AND
+                                                             [FECHA_INC] = @fecha";
+
+                cmd.Parameters.AddWithValue("nombre", nombre);
+                cmd.Parameters.AddWithValue("fecha", fecha);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Incidencia incidencia = new Incidencia();
+                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                        lista.Add(incidencia);
+                    }
+                }
+
+
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+
+        public static List<Incidencia> DevolverListaIncidenciasEstadoFecha(string estado, string fecha)
+        {
+            try
+            {
+                List<Incidencia> lista = new List<Incidencia>();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_INCIDENCIA]
+                                      ,[ID_USU]
+                                      ,[ID_EMPRESA]
+                                      ,[NOMBRE_EMPRESA]
+                                      ,[COORDENADAS]
+                                      ,[FECHA_INC]
+                                      ,[ESTADO_INC]
+                                    FROM [dbo].[Incidencias] WHERE
+                                                             [ESTADO_INC] = @estado AND
+                                                             [FECHA_INC] = @fecha";
+
+
+                cmd.Parameters.AddWithValue("estado", estado);
+                cmd.Parameters.AddWithValue("fecha", fecha);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Incidencia incidencia = new Incidencia();
+                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                        lista.Add(incidencia);
+                    }
+                }
+
+
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+        public static List<Incidencia> DevolverListaIncidenciasEmpresaEstado(string nombre, string estado)
+        {
+            try
+            {
+                List<Incidencia> lista = new List<Incidencia>();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_INCIDENCIA]
+                                      ,[ID_USU]
+                                      ,[ID_EMPRESA]
+                                      ,[NOMBRE_EMPRESA]
+                                      ,[COORDENADAS]
+                                      ,[FECHA_INC]
+                                      ,[ESTADO_INC]
+                                    FROM [dbo].[Incidencias] WHERE [NOMBRE_EMPRESA] = @nombre AND
+                                                             [ESTADO_INC] = @estado";
+
+                cmd.Parameters.AddWithValue("nombre", nombre);
+                cmd.Parameters.AddWithValue("estado", estado);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Incidencia incidencia = new Incidencia();
+                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                        lista.Add(incidencia);
+                    }
+                }
+
+
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+
+        public static List<Incidencia> DevolverListaIncidenciasEmpresaEstadoFecha(string nombre, string estado, string fecha)
+        {
+            try
+            {
+                List<Incidencia> lista = new List<Incidencia>();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_INCIDENCIA]
+                                      ,[ID_USU]
+                                      ,[ID_EMPRESA]
+                                      ,[NOMBRE_EMPRESA]
+                                      ,[COORDENADAS]
+                                      ,[FECHA_INC]
+                                      ,[ESTADO_INC]
+                                    FROM [dbo].[Incidencias] WHERE [NOMBRE_EMPRESA] = @nombre AND
+                                                             [ESTADO_INC] = @estado AND
+                                                             [FECHA_INC] = @fecha";
+
+                cmd.Parameters.AddWithValue("nombre", nombre);
+                cmd.Parameters.AddWithValue("estado", estado);
+                cmd.Parameters.AddWithValue("fecha", fecha);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Incidencia incidencia = new Incidencia();
+                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                        lista.Add(incidencia);
+                    }
+                }
+
+
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+        public static List<Incidencia> DevolverListaIncidenciasFecha(string fecha)
         {
             try
             {

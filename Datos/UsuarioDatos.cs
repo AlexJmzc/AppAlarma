@@ -72,6 +72,7 @@ namespace Datos
                         usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
                         usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
                         usu.ROL_USU = dr["ROL_USU"].ToString();
+                        usu.ESTADO = dr["ESTADO"].ToString();
                         lista.Add(usu);
                     }
                 }
@@ -90,6 +91,65 @@ namespace Datos
 
 
         }
+
+        public static List<Usuario> DevolverListaUsuariosEstado(string estado)
+        {
+            try
+            {
+                List<Usuario> lista = new List<Usuario>();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_USU]
+                                      ,[NOMBRE_USU]
+                                      ,[CLAVE_USU]
+                                      ,[ROL_USU]
+                                      ,[CEDULA_USU]
+                                      ,[NOMBRE_CLI]
+                                      ,[APELLIDO_CLI]
+                                      ,[TELEFONO_CLI]
+                                      ,[ID_EMPRESA]
+                                      ,[ESTADO]
+                                    FROM [dbo].[Usuarios] WHERE [ESTADO] = @estado";
+
+                cmd.Parameters.AddWithValue("estado", estado);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Usuario usu = new Usuario();
+                        usu.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        usu.CEDULA_USU = dr["CEDULA_USU"].ToString();
+                        usu.NOMBRE_CLI = dr["NOMBRE_CLI"].ToString();
+                        usu.APELLIDO_CLI = dr["APELLIDO_CLI"].ToString();
+                        usu.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        usu.TELEFONO_CLI = dr["TELEFONO_CLI"].ToString();
+                        usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
+                        usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
+                        usu.ROL_USU = dr["ROL_USU"].ToString();
+                        usu.ESTADO = dr["ESTADO"].ToString();
+                        lista.Add(usu);
+                    }
+                }
+
+
+                conexion.Close();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
 
         public static List<Usuario> DevolverListaUsuariosEmpresa(int id)
         {
@@ -110,6 +170,7 @@ namespace Datos
                                       ,[APELLIDO_CLI]
                                       ,[TELEFONO_CLI]
                                       ,[ID_EMPRESA]
+                                      ,[ESTADO]
                                     FROM [dbo].[Usuarios] WHERE [ID_EMPRESA] = @id";
 
                 cmd.Parameters.AddWithValue("id", id);
@@ -128,6 +189,7 @@ namespace Datos
                         usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
                         usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
                         usu.ROL_USU = dr["ROL_USU"].ToString();
+                        usu.ESTADO = dr["ESTADO"].ToString();
                         lista.Add(usu);
                     }
                 }
@@ -166,6 +228,7 @@ namespace Datos
                                       ,[APELLIDO_CLI]
                                       ,[TELEFONO_CLI]
                                       ,[ID_EMPRESA]
+                                      ,[ESTADO]
                                     FROM [dbo].[Usuarios] WHERE [NOMBRE_USU] = @nombre_usu";
 
                 cmd.Parameters.AddWithValue("nombre_usu", nombre_usuario);
@@ -183,7 +246,7 @@ namespace Datos
                         usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
                         usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
                         usu.ROL_USU = dr["ROL_USU"].ToString();
-
+                        usu.ESTADO = dr["ESTADO"].ToString();
                     }
                 }
 
@@ -222,6 +285,7 @@ namespace Datos
                                       ,[APELLIDO_CLI]
                                       ,[TELEFONO_CLI]
                                       ,[ID_EMPRESA]
+                                      ,[ESTADO]
                                     FROM [dbo].[Usuarios] WHERE [CEDULA_USU] = @cedula";
 
                 cmd.Parameters.AddWithValue("cedula", cedula);
@@ -239,7 +303,7 @@ namespace Datos
                         usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
                         usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
                         usu.ROL_USU = dr["ROL_USU"].ToString();
-
+                        usu.ESTADO = dr["ESTADO"].ToString();
                     }
 
                 }
@@ -276,7 +340,8 @@ namespace Datos
                                  ,[NOMBRE_CLI]
                                  ,[APELLIDO_CLI]
                                  ,[TELEFONO_CLI]
-                                 ,[ID_EMPRESA])
+                                 ,[ID_EMPRESA]
+                                 ,[ESTADO])
                                 VALUES
                                 (@nombreUsuario
                                 ,@claveUsuario
@@ -285,7 +350,8 @@ namespace Datos
                                 ,@nombrecliente
                                 ,@apellidocliente                                                                
                                 ,@telefonocliente
-                                ,@idEmpresa);
+                                ,@idEmpresa
+                                ,@estado);
                                 SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("@nombreUsuario", usu.NOMBRE_USU);
@@ -296,6 +362,7 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@apellidoCliente", usu.APELLIDO_CLI);
                 cmd.Parameters.AddWithValue("@telefonoCliente", usu.TELEFONO_CLI);
                 cmd.Parameters.AddWithValue("@idEmpresa", usu.ID_EMPRESA);
+                cmd.Parameters.AddWithValue("@estado", usu.ESTADO);
 
                 int idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
                 usu.ID_USU = idUsuario;
@@ -327,7 +394,8 @@ namespace Datos
                                  [NOMBRE_CLI] = @nombreCli,
                                  [APELLIDO_CLI] = @apellidoCli,
                                  [TELEFONO_CLI] = @telefonoCli,
-                                 [ID_EMPRESA] = @idEmpresa
+                                 [ID_EMPRESA] = @idEmpresa,
+                                 [ESTADO] = @estado
                              WHERE [CEDULA_USU] = @cedula AND [ID_USU] = @idUsuario";
 
             cmd.Parameters.AddWithValue("@idUsuario", usu.ID_USU);
@@ -339,6 +407,32 @@ namespace Datos
             cmd.Parameters.AddWithValue("@apellidoCLi", usu.APELLIDO_CLI);
             cmd.Parameters.AddWithValue("@telefonoCli", usu.TELEFONO_CLI);
             cmd.Parameters.AddWithValue("@idEmpresa", usu.ID_EMPRESA);
+            cmd.Parameters.AddWithValue("@estado", usu.ESTADO);
+
+            cmd.ExecuteNonQuery();
+
+
+
+            conexion.Close();
+
+            return usu;
+        }
+
+        public static Usuario ActualizarEstadoUsuario(Usuario usu)
+        {
+            SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexion;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE [dbo].[Usuarios]
+                             SET 
+                                 
+                                 [ESTADO] = @estado
+                             WHERE [ID_USU] = @idUsuario";
+
+            cmd.Parameters.AddWithValue("@idUsuario", usu.ID_USU);
+            cmd.Parameters.AddWithValue("@estado", usu.ESTADO);
 
             cmd.ExecuteNonQuery();
 

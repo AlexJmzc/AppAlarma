@@ -119,7 +119,8 @@ namespace Escritorio
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            AbrirFormulario<FormularioIncidencias>();
+            button1.BackColor = Color.FromArgb(12, 61, 92);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -144,7 +145,7 @@ namespace Escritorio
         private void button3_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormularioEmpresas>();
-            button1.BackColor = Color.FromArgb(12, 61, 92);
+            button3.BackColor = Color.FromArgb(12, 61, 92);
         }
 
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
@@ -173,9 +174,11 @@ namespace Escritorio
 
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms["Form1"] == null)
+            if (Application.OpenForms["FormularioUsuarios"] == null)
                 button1.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["Form2"] == null)
+            if (Application.OpenForms["FormularioEmpresas"] == null)
+                button2.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["FormularioIncidencias"] == null)
                 button2.BackColor = Color.FromArgb(4, 41, 68);
         }
 

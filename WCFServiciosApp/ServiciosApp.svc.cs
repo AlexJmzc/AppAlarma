@@ -26,6 +26,11 @@ namespace WCFServiciosApp
             return EmpresaLogica.DevolverEmpresa(id);
         }
 
+        public List<Empresa> DevolverListaEmpresasEstado(string estado)
+        {
+            return EmpresaLogica.DevolverListaEmpresasEstado(estado)
+        }
+
 
 
         //USUARIOS
@@ -56,6 +61,13 @@ namespace WCFServiciosApp
         public Usuario DevolverUsuarioCedula(string cedula)
         {
             return UsuarioLogica.DevolverUsuarioCedula(cedula);
+        }
+
+
+        //USUARIOS POR ESTADO
+        public List<Usuario> DevolverListaUsuariosEstado(string estado)
+        {
+            return UsuarioLogica.DevolverListaUsuariosEstado(estado);
         }
 
 
@@ -92,7 +104,7 @@ namespace WCFServiciosApp
 
 
         //LISTA DE INCIDENCIAS POR FECHA
-        public List<Incidencia> DevolverListaIncidenciasFecha(DateTime fecha)
+        public List<Incidencia> DevolverListaIncidenciasFecha(string fecha)
         {
             return IncidenciaLogica.DevolverListaIncidenciasFecha(fecha);
         }
@@ -119,23 +131,69 @@ namespace WCFServiciosApp
         }
 
 
+        //INCIDENCIAS POR ESTADO Y FECHA
+        public List<Incidencia> DevolverListaIncidenciasEstadoFecha(string estado, string fecha)
+        {
+            return IncidenciaLogica.DevolverListaIncidenciasEstadoFecha(estado, fecha);
+        }
+
+
+        //INCIDENCIAS POR EMPRESA Y FECHA
+        public List<Incidencia> DevolverListaIncidenciasEmpresaFecha(string nombre, string fecha)
+        {
+            return IncidenciaLogica.DevolverListaIncidenciasEmpresaFecha(nombre, fecha);
+        }
+
+
+        //INCIDENCIAS POR EMPRESA Y ESTADO
+        public List<Incidencia> DevolverListaIncidenciasEmpresaEstado(string nombre, string estado)
+        {
+            return IncidenciaLogica.DevolverListaIncidenciasEmpresaEstado(nombre, estado);
+        }
+
+
+        //INCIDENCIAS POR EMPRESA, ESTADO Y FECHA
+        public List<Incidencia> DevolverListaIncidenciasEmpresaEstadoFecha(string nombre, string estado, string fecha)
+        {
+            return IncidenciaLogica.DevolverListaIncidenciasEmpresaEstadoFecha(nombre, estado, fecha);
+        }
+
+
+
+        //DIRECCIONES
+
+
+        //LISTA DE TODAS LAS DIRECCIONES
+        public List<Direcciones> DevolverListaDirecciones()
+        {
+            return DireccionLogica.DevolverListaDirecciones();
+        }
+
+
+        //DIRECCION POR ID
+        public Direcciones DevolverDireccion(string direccion)
+        {
+            return DireccionLogica.DevolverDireccion(direccion);
+        }
+
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //MÉTODOS DE NUEVO
 
         //EMPRESA
-        public Empresa NuevaEmpresa(string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa)
+        public Empresa NuevaEmpresa(string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado)
         {
-            Empresa empresa = new Empresa(nombreEmpresa, direccionEmpresa, coordenadasEmpresa, descripcionEmpresa, telefonoEmpresa);
+            Empresa empresa = new Empresa(nombreEmpresa, direccionEmpresa, coordenadasEmpresa, descripcionEmpresa, telefonoEmpresa, estado);
             return EmpresaLogica.NuevaEmpresa(empresa);
         }
 
 
 
         //USUARIO
-        public Usuario NuevoUsuario(string nombreUsuario, string claveUsuario, string rolUsuario, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
+        public Usuario NuevoUsuario(string nombreUsuario, string claveUsuario, string rolUsuario, string cedula, string nombre, string apellido, string telefono, int idEmpresa, string estado)
         {
-            Usuario usu = new Usuario(nombreUsuario, claveUsuario, rolUsuario, cedula, nombre, apellido, telefono, idEmpresa);
+            Usuario usu = new Usuario(nombreUsuario, claveUsuario, rolUsuario, cedula, nombre, apellido, telefono, idEmpresa, estado);
             return UsuarioLogica.Nuevo(usu);
         }
 
@@ -155,10 +213,17 @@ namespace WCFServiciosApp
         //MÉTODOS DE ACTUALIZAR
 
         //EMPRESA
-        public Empresa ActualizarEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa)
+        public Empresa ActualizarEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado)
         {
-            Empresa empresa = new Empresa(idEmpresa, nombreEmpresa, direccionEmpresa, coordenadasEmpresa, descripcionEmpresa, telefonoEmpresa);
+            Empresa empresa = new Empresa(idEmpresa, nombreEmpresa, direccionEmpresa, coordenadasEmpresa, descripcionEmpresa, telefonoEmpresa, estado);
             return EmpresaLogica.Actualizar(empresa);
+        }
+
+
+        public Empresa ActualizarEstadoEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado)
+        {
+            Empresa empresa = new Empresa(idEmpresa, nombreEmpresa, direccionEmpresa, coordenadasEmpresa, descripcionEmpresa, telefonoEmpresa, estado);
+            return EmpresaLogica.ActualizarEstado(empresa);
         }
 
 
@@ -168,6 +233,13 @@ namespace WCFServiciosApp
         {
             Usuario usu = new Usuario(idUsuario, nombreUsuario, claveUsuario, rolUsuario, cedula, nombre, apellido, telefono, idEmpresa);
             return UsuarioLogica.ActualizarUsuario(usu);
+        }
+
+
+        public Usuario ActualizarEstadoUsuario(int idUsuario, string nombreUsuario, string claveUsuario, string rolUsuario, string cedula, string nombre, string apellido, string telefono, int idEmpresa)
+        {
+            Usuario usu = new Usuario(idUsuario, nombreUsuario, claveUsuario, rolUsuario, cedula, nombre, apellido, telefono, idEmpresa);
+            return UsuarioLogica.ActualizarEstadoUsuario(usu);
         }
 
 

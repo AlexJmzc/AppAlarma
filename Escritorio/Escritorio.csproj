@@ -52,6 +52,12 @@
     <Compile Include="FormularioEmpresas.Designer.cs">
       <DependentUpon>FormularioEmpresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormularioIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioIncidencias.Designer.cs">
+      <DependentUpon>FormularioIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormularioEmpresas.resx">
       <DependentUpon>FormularioEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioIncidencias.resx">
+      <DependentUpon>FormularioIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioUsuarios.resx">
       <DependentUpon>FormularioUsuarios.cs</DependentUpon>

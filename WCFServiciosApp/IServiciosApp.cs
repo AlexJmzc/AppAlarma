@@ -31,6 +31,15 @@ namespace WCFServiciosApp
         Empresa DevolverEmpresa(int id);
 
 
+        //EMPRESAS POR ESTADO
+        [OperationContract]
+        [WebInvoke(UriTemplate = "DevolverListaEmpresasEstado?estado={estado}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Empresa> DevolverListaEmpresasEstado(string estado);
+
+
+
 
         //USUARIOS
 
@@ -65,6 +74,13 @@ namespace WCFServiciosApp
         ResponseFormat = WebMessageFormat.Json)]
         Usuario DevolverUsuarioCedula(string cedula);
 
+
+        //USUARIOS POR ESTADO
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ListaUsuarioEstado?estado={estado}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Usuario> DevolverListaUsuariosEstado(string estado);
 
 
         //INCIDENCIAS
@@ -107,7 +123,7 @@ namespace WCFServiciosApp
         [WebInvoke(UriTemplate = "ListaIncidenciasFecha?fecha={fecha}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
-        List<Incidencia> DevolverListaIncidenciasFecha(DateTime fecha);
+        List<Incidencia> DevolverListaIncidenciasFecha(string fecha);
 
 
         //LISTA DE INCIDENCIAS POR COORDENADAS
@@ -134,18 +150,69 @@ namespace WCFServiciosApp
         Incidencia DevolverIncidenciaID(int idIncidencia);
 
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-       
+        //INCIDENCIAS POR ESTADO Y FECHA
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ListaIncidenciasEstadoFecha?estado={estado}&fecha={fecha}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Incidencia> DevolverListaIncidenciasEstadoFecha(string estado, string fecha);
+
+
+        //INCIDENCIAS POR EMPRESA Y FECHA
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ListaIncidenciasEmpresaFecha?nombre={nombre}&fecha={fecha}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Incidencia> DevolverListaIncidenciasEmpresaFecha(string nombre, string fecha);
+
+
+        //INCIDENCIAS POR EMPRESA Y ESTADO
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ListaIncidenciasEmpresaEstado?nombre={nombre}&estado={estado}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Incidencia> DevolverListaIncidenciasEmpresaEstado(string nombre, string estado);
+
+
+        //INCIDENCIAS POR EMPRESA, ESTADO Y FECHA
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ListaIncidenciasEmpresaEstadoFecha?nombre={nombre}&estado={estado}&fecha={fecha}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Incidencia> DevolverListaIncidenciasEmpresaEstadoFecha(string nombre, string estado, string fecha);
+
+
+        //DIRECCIONES
+
+        //LISTA DE TODAS LAS DIRECCIONES
+        [OperationContract]
+        [WebGet(UriTemplate = "ListaDirecciones",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        List<Direcciones> DevolverListaDirecciones();
+
+
+        //DIRECCION POR ID
+        [OperationContract]
+        [WebInvoke(UriTemplate = "DireccionNombre?direccion={direccion}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        Direcciones DevolverDireccion(string direccion);
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         //METODOS NUEVO
 
 
         //EMPRESA
         [OperationContract]
         [WebInvoke(UriTemplate = "NuevaEmpresa?nombreEmpresa={nombreEmpresa}&direccionEmpresa={direccionEmpresa}" +
-            "&coordenadasEmpresa={coordenadasEmpresa}&descripcionEmpresa={descripcionEmpresa}&telefonoEmpresa={telefonoEmpresa}", Method = "GET",
+            "&coordenadasEmpresa={coordenadasEmpresa}&descripcionEmpresa={descripcionEmpresa}&telefonoEmpresa={telefonoEmpresa}" +
+            "&estado={estado}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
-        Empresa NuevaEmpresa(string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa);
+        Empresa NuevaEmpresa(string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado);
 
 
         //INCIDENCIA
@@ -161,10 +228,10 @@ namespace WCFServiciosApp
         [OperationContract]
         [WebInvoke(UriTemplate = "NuevoUsuario?nombreUsuario={nombreUsuario}&claveUsuario={claveUsuario}" +
             "&rolUsuario={rolUsuario}&cedula={cedula}&nombre={nombre}&apellido={apellido}" +
-            "&telefono={telefono}&idEmpresa={idEmpresa}", Method = "GET",
+            "&telefono={telefono}&idEmpresa={idEmpresa}&estado={estado}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
-        Usuario NuevoUsuario(string nombreUsuario, string claveUsuario, string rolUsuario, string cedula, string nombre, string apellido, string telefono, int idEmpresa);
+        Usuario NuevoUsuario(string nombreUsuario, string claveUsuario, string rolUsuario, string cedula, string nombre, string apellido, string telefono, int idEmpresa, string estado);
         
         
         
@@ -177,10 +244,19 @@ namespace WCFServiciosApp
         [OperationContract]
         [WebInvoke(UriTemplate = "ActualizarEmpresa?idEmpresa={idEmpresa}& nombreEmpresa={nombreEmpresa}&direccionEmpresa={direccionEmpresa}" +
             "&coordenadasEmpresa={coordenadasEmpresa}&descripcionEmpresa={descripcionEmpresa}" +
-            "&telefonoEmpresa={telefonoEmpresa}", Method = "GET",
+            "&telefonoEmpresa={telefonoEmpresa}&estado={estado}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
-        Empresa ActualizarEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa);
+        Empresa ActualizarEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado);
+
+        //EMPRESA
+        [OperationContract]
+        [WebInvoke(UriTemplate = "ActualizarEmpresa?idEmpresa={idEmpresa}& nombreEmpresa={nombreEmpresa}&direccionEmpresa={direccionEmpresa}" +
+            "&coordenadasEmpresa={coordenadasEmpresa}&descripcionEmpresa={descripcionEmpresa}" +
+            "&telefonoEmpresa={telefonoEmpresa}&estado={estado}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        Empresa ActualizarEstadoEmpresa(int idEmpresa, string nombreEmpresa, string direccionEmpresa, string coordenadasEmpresa, string descripcionEmpresa, string telefonoEmpresa, string estado);
 
 
         //USUARIO
