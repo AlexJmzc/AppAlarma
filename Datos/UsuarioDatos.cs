@@ -323,6 +323,64 @@ namespace Datos
 
         }
 
+
+        public static Usuario DevolverUsuarioID(int id)
+        {
+            try
+            {
+                Usuario usu = new Usuario();
+                SqlConnection conexion = new SqlConnection(Properties.Settings.Default.ConexionBD);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"SELECT [ID_USU]
+                                      ,[NOMBRE_USU]
+                                      ,[CLAVE_USU]
+                                      ,[ROL_USU]
+                                      ,[CEDULA_USU]
+                                      ,[NOMBRE_CLI]
+                                      ,[APELLIDO_CLI]
+                                      ,[TELEFONO_CLI]
+                                      ,[ID_EMPRESA]
+                                      ,[ESTADO]
+                                    FROM [dbo].[Usuarios] WHERE [ID_USU] = @id";
+
+                cmd.Parameters.AddWithValue("id", id);
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        usu.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        usu.CEDULA_USU = dr["CEDULA_USU"].ToString();
+                        usu.NOMBRE_CLI = dr["NOMBRE_CLI"].ToString();
+                        usu.APELLIDO_CLI = dr["APELLIDO_CLI"].ToString();
+                        usu.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        usu.TELEFONO_CLI = dr["TELEFONO_CLI"].ToString();
+                        usu.NOMBRE_USU = dr["NOMBRE_USU"].ToString();
+                        usu.CLAVE_USU = dr["CLAVE_USU"].ToString();
+                        usu.ROL_USU = dr["ROL_USU"].ToString();
+                        usu.ESTADO = dr["ESTADO"].ToString();
+                    }
+
+                }
+
+                conexion.Close();
+
+                return usu;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
         public static Usuario Nuevo(Usuario usu)
         {
             try

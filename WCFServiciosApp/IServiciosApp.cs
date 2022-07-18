@@ -83,6 +83,14 @@ namespace WCFServiciosApp
         List<Usuario> DevolverListaUsuariosEstado(string estado);
 
 
+        //USUARIO POR ID
+        [OperationContract]
+        [WebInvoke(UriTemplate = "UsuarioID?id={id}", Method = "GET",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+        Usuario DevolverUsuarioID(int id);
+
+
         //INCIDENCIAS
 
 

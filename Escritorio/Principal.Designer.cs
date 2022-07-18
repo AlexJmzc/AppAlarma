@@ -78,6 +78,7 @@ namespace Escritorio
             this.panelFormularios.Name = "panelFormularios";
             this.panelFormularios.Size = new System.Drawing.Size(1113, 621);
             this.panelFormularios.TabIndex = 2;
+            this.panelFormularios.Click += new System.EventHandler(this.panelFormularios_Click);
             // 
             // panelMenu
             // 

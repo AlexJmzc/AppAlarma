@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertaIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlertaIncidencia.Designer.cs">
+      <DependentUpon>AlertaIncidencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlertaIncidencia.resx">
+      <DependentUpon>AlertaIncidencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioEmpresas.resx">
       <DependentUpon>FormularioEmpresas.cs</DependentUpon>
     </EmbeddedResource>

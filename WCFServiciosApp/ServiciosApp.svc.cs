@@ -71,6 +71,13 @@ namespace WCFServiciosApp
         }
 
 
+        //USUARIO POR ID
+        public Usuario DevolverUsuarioID(int id)
+        {
+            return UsuarioLogica.DevolverUsuarioID(id);
+        }
+
+
 
         //INCIDENCIAS
 

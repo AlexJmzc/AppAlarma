@@ -159,9 +159,9 @@ namespace Escritorio
           
             if (!cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() != "Ninguno" && fecha1 != "2019-12-31") //1 1 1
             {
-                String nombre = cbxEmpresas.SelectedItem.ToString();
+                var emp = cbxEmpresas.SelectedItem as Empresa;
                 String estado = cbxEstados.SelectedItem.ToString();
-                cargarTablaFiltroEmpresa_Estado_Fecha(nombre, estado, dtpFecha.Value.ToString("yyyy-MM-dd"));
+                cargarTablaFiltroEmpresa_Estado_Fecha(emp.NOMBRE_EMP, estado, dtpFecha.Value.ToString("yyyy-MM-dd"));
             }
             else if (cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() == "Ninguno" && fecha1 != "2019-12-31") // 0 0 1
             {
@@ -173,7 +173,8 @@ namespace Escritorio
             }
             else if (!cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() == "Ninguno" && fecha1 == "2019-12-31") // 1 0 0
             {
-                cargarTablaFiltroEmpresa(cbxEmpresas.SelectedItem.ToString());
+                var emp = cbxEmpresas.SelectedItem as Empresa;
+                cargarTablaFiltroEmpresa(emp.NOMBRE_EMP);
             }
             else if (cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() != "Ninguno" && fecha1 != "2019-12-31") // 0 1 1
             {
@@ -181,17 +182,78 @@ namespace Escritorio
             }
             else if (!cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() == "Ninguno" && fecha1 != "2019-12-31") // 1 0 1
             {
-                cargarTablaFiltroEmpresa_Fecha(cbxEmpresas.SelectedItem.ToString(), dtpFecha.Value.ToString("yyyy-MM-dd"));
+                var emp = cbxEmpresas.SelectedItem as Empresa;
+                cargarTablaFiltroEmpresa_Fecha(emp.NOMBRE_EMP, dtpFecha.Value.ToString("yyyy-MM-dd"));
             }
             else if (!cbxEmpresas.SelectedValue.ToString().Contains("Ninguna") && cbxEstados.SelectedItem.ToString() != "Ninguno" && fecha1 == "2019-12-31") // 1 1 0
             {
-                cargarTablaFiltroEmpresa_Estado(cbxEmpresas.SelectedItem.ToString(), cbxEstados.SelectedItem.ToString());
+                var emp = cbxEmpresas.SelectedItem as Empresa;
+                cargarTablaFiltroEmpresa_Estado(emp.NOMBRE_EMP, cbxEstados.SelectedItem.ToString());
             }
             else
             {
                 cargarTabla();
             }
 
+
+        }
+
+        private void btnLlamar_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "" || txtEstado.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar una incidencia primero", "Aviso",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+            if(txtEstado.Text.Contains("En Espera"))
+            {
+                
+               MessageBox.Show("La policía ya está en camino para atender esta incidencia", "Aviso",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (txtEstado.Text.Contains("Atendida"))
+            {
+                MessageBox.Show("Esta incidencia ya fue atendida", "Aviso",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (txtEstado.Text.Contains("Alerta"))
+            {
+                var id = Convert.ToInt32(txtID.Text.ToString());
+
+                IncidenciaLogica.ActualizarEstado(id , "En Espera");
+
+                MessageBox.Show("La policía fue avisada y está en camino", "Aviso",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                cargarTabla();
+
+            }
+        }
+
+        private void dtgIncidencias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = Convert.ToInt32(dtgIncidencias.Rows[e.RowIndex].Cells["ID_INCIDENCIA"].Value.ToString());
+          
+            cargarCasosEnControles(id);
+        }
+
+        private void cargarCasosEnControles(int id)
+        {
+            Incidencia inc = IncidenciaLogica.DevolverIncidenciaID(id);
+            if (inc != null)
+            {
+                txtEstado.Text = inc.ESTADO;
+                txtID.Text = inc.ID_INCIDENCIA.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Error", "Aviso",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
 
         }
     }

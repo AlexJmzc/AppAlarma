@@ -16,6 +16,9 @@ namespace Escritorio
     public partial class Principal : Form
     {
         Usuario usuario;
+        int n = IncidenciaLogica.DevolverListaIncidencias().Count;
+
+
         public Principal(Usuario usuario)
         {
             this.usuario = usuario;
@@ -148,6 +151,27 @@ namespace Escritorio
             button3.BackColor = Color.FromArgb(12, 61, 92);
         }
 
+
+        private void panelFormularios_Click(object sender, EventArgs e)
+        {
+            int numero = IncidenciaLogica.DevolverListaIncidencias().Count;
+
+            if (n == numero)
+            {
+
+            }
+            else
+            {
+                Incidencia i = IncidenciaLogica.DevolverListaIncidencias().Last();
+              
+                AlertaIncidencia a = new AlertaIncidencia(i);
+                a.Show();
+                
+            }
+
+
+        }
+
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
@@ -170,6 +194,12 @@ namespace Escritorio
                 formulario.BringToFront();
             }
         }
+
+
+
+
+
+
 
 
         private void CloseForms(object sender, FormClosedEventArgs e)

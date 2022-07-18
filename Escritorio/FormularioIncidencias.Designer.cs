@@ -44,6 +44,9 @@ namespace Escritorio
             this.label4 = new System.Windows.Forms.Label();
             this.btnFiltro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnLlamar = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgIncidencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +94,7 @@ namespace Escritorio
             this.dtgIncidencias.RowTemplate.Height = 28;
             this.dtgIncidencias.Size = new System.Drawing.Size(1076, 325);
             this.dtgIncidencias.TabIndex = 7;
+            this.dtgIncidencias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgIncidencias_CellClick);
             this.dtgIncidencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgIncidencias_CellContentClick);
             this.dtgIncidencias.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgIncidencias_CellFormatting);
             // 
@@ -230,12 +234,47 @@ namespace Escritorio
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnLlamar
+            // 
+            this.btnLlamar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLlamar.BackColor = System.Drawing.Color.Lime;
+            this.btnLlamar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLlamar.ForeColor = System.Drawing.Color.White;
+            this.btnLlamar.Location = new System.Drawing.Point(941, 105);
+            this.btnLlamar.Name = "btnLlamar";
+            this.btnLlamar.Size = new System.Drawing.Size(131, 38);
+            this.btnLlamar.TabIndex = 18;
+            this.btnLlamar.Text = "Llamar";
+            this.btnLlamar.UseVisualStyleBackColor = false;
+            this.btnLlamar.Click += new System.EventHandler(this.btnLlamar_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(17, 26);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(100, 26);
+            this.txtID.TabIndex = 19;
+            this.txtID.Visible = false;
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(147, 26);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.ReadOnly = true;
+            this.txtEstado.Size = new System.Drawing.Size(100, 26);
+            this.txtEstado.TabIndex = 20;
+            this.txtEstado.Visible = false;
+            // 
             // FormularioIncidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1113, 621);
+            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.btnLlamar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnFiltro);
             this.Controls.Add(this.label4);
@@ -272,5 +311,8 @@ namespace Escritorio
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnFiltro;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLlamar;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtEstado;
     }
 }

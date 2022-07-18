@@ -16,6 +16,11 @@ namespace Logica
             return UsuarioDatos.DevolverListaUsuariosEstado(estado);
         }
 
+        public static Usuario DevolverUsuarioID(int id)
+        {
+            return UsuarioDatos.DevolverUsuarioID(id);
+        }
+
         public static Usuario ActualizarEstadoUsuario(Usuario usu)
         {
             return UsuarioDatos.ActualizarEstadoUsuario(usu);

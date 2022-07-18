@@ -617,13 +617,18 @@ namespace Datos
 
                 using (var dr = cmd.ExecuteReader())
                 {
-                    incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
-                    incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
-                    incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
-                    incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
-                    incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
-                    incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
-                    incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                    while (dr.Read())
+                    {
+         
+                        incidencia.ID_INCIDENCIA = Convert.ToInt32(dr["ID_INCIDENCIA"].ToString());
+                        incidencia.ID_USU = Convert.ToInt32(dr["ID_USU"].ToString());
+                        incidencia.ID_EMPRESA = Convert.ToInt32(dr["ID_EMPRESA"].ToString());
+                        incidencia.NOMBRE_EMPRESA = dr["NOMBRE_EMPRESA"].ToString();
+                        incidencia.COORDENADAS = dr["COORDENADAS"].ToString();
+                        incidencia.FECHA = Convert.ToDateTime(dr["FECHA_INC"].ToString());
+                        incidencia.ESTADO = dr["ESTADO_INC"].ToString();
+                       
+                    }
                 }
 
 
@@ -697,7 +702,7 @@ namespace Datos
             cmd.Connection = conexion;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = @"UPDATE [dbo].[Incidencias]
-                             SET [ESTADO_INC] = @estado,
+                             SET [ESTADO_INC] = @estado
                              WHERE [ID_INCIDENCIA] = @id";
 
             cmd.Parameters.AddWithValue("@id", id);
