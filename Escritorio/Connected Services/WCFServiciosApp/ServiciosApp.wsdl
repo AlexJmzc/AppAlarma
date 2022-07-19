@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiciosApp" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://aplicacionesabrahm.somee.com/ServiciosApp.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://aplicacionesabrahm.somee.com/ServiciosApp.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://aplicacionesabrahm.somee.com/ServiciosApp.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Entidades" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiciosApp_DevolverListaEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaEmpresasEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaEmpresasEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaEmpresasEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaEmpresasEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuariosEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuariosEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuariosEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuariosEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioNombreUsu_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioNombreUsu" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioNombreUsu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioNombreUsuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioCedula_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioCedula" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioCedula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuariosEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuariosEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaUsuariosEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaUsuariosEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioID" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverUsuarioID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverUsuarioIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidencias_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidencias" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidencias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasNombreEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasNombreEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasNombreEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasNombreEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasFecha" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasCoordenadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasCoordenadas" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasCoordenadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasCoordenadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverIncidenciaID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverIncidenciaID" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverIncidenciaID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverIncidenciaIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEstadoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEstadoFecha" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEstadoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEstadoFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaFecha" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaEstadoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaEstadoFecha" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaIncidenciasEmpresaEstadoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaIncidenciasEmpresaEstadoFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaDirecciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaDirecciones" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverListaDirecciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaDireccionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverDireccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverDireccion" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_DevolverDireccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverDireccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevaEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevaEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevaIncidencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaIncidencia" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevaIncidencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaIncidenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_NuevoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEstadoEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEstadoEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_ActualizarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarIncidencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarIncidencia" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_EliminarIncidencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarIncidenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServiciosApp_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiciosApp">
+    <wsdl:operation name="DevolverListaEmpresas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaEmpresas" message="tns:IServiciosApp_DevolverListaEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaEmpresasResponse" message="tns:IServiciosApp_DevolverListaEmpresas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverEmpresa" message="tns:IServiciosApp_DevolverEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverEmpresaResponse" message="tns:IServiciosApp_DevolverEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaEmpresasEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaEmpresasEstado" message="tns:IServiciosApp_DevolverListaEmpresasEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaEmpresasEstadoResponse" message="tns:IServiciosApp_DevolverListaEmpresasEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuarios" message="tns:IServiciosApp_DevolverListaUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuariosResponse" message="tns:IServiciosApp_DevolverListaUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaUsuariosEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuariosEmpresa" message="tns:IServiciosApp_DevolverListaUsuariosEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuariosEmpresaResponse" message="tns:IServiciosApp_DevolverListaUsuariosEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverUsuarioNombreUsu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioNombreUsu" message="tns:IServiciosApp_DevolverUsuarioNombreUsu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioNombreUsuResponse" message="tns:IServiciosApp_DevolverUsuarioNombreUsu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverUsuarioCedula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioCedula" message="tns:IServiciosApp_DevolverUsuarioCedula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioCedulaResponse" message="tns:IServiciosApp_DevolverUsuarioCedula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaUsuariosEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuariosEstado" message="tns:IServiciosApp_DevolverListaUsuariosEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaUsuariosEstadoResponse" message="tns:IServiciosApp_DevolverListaUsuariosEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverUsuarioID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioID" message="tns:IServiciosApp_DevolverUsuarioID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverUsuarioIDResponse" message="tns:IServiciosApp_DevolverUsuarioID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidencias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidencias" message="tns:IServiciosApp_DevolverListaIncidencias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasResponse" message="tns:IServiciosApp_DevolverListaIncidencias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresa" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasUsuario" message="tns:IServiciosApp_DevolverListaIncidenciasUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasUsuarioResponse" message="tns:IServiciosApp_DevolverListaIncidenciasUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasNombreEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasNombreEmpresa" message="tns:IServiciosApp_DevolverListaIncidenciasNombreEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasNombreEmpresaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasNombreEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasFecha" message="tns:IServiciosApp_DevolverListaIncidenciasFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasFechaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasCoordenadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasCoordenadas" message="tns:IServiciosApp_DevolverListaIncidenciasCoordenadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasCoordenadasResponse" message="tns:IServiciosApp_DevolverListaIncidenciasCoordenadas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEstado" message="tns:IServiciosApp_DevolverListaIncidenciasEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEstadoResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverIncidenciaID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverIncidenciaID" message="tns:IServiciosApp_DevolverIncidenciaID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverIncidenciaIDResponse" message="tns:IServiciosApp_DevolverIncidenciaID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEstadoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEstadoFecha" message="tns:IServiciosApp_DevolverListaIncidenciasEstadoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEstadoFechaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEstadoFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEmpresaFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaFecha" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaFechaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEmpresaEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaEstado" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaEstadoResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaIncidenciasEmpresaEstadoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaEstadoFecha" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaEstadoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaIncidenciasEmpresaEstadoFechaResponse" message="tns:IServiciosApp_DevolverListaIncidenciasEmpresaEstadoFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaDirecciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaDirecciones" message="tns:IServiciosApp_DevolverListaDirecciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverListaDireccionesResponse" message="tns:IServiciosApp_DevolverListaDirecciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverDireccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/DevolverDireccion" message="tns:IServiciosApp_DevolverDireccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/DevolverDireccionResponse" message="tns:IServiciosApp_DevolverDireccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevaEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/NuevaEmpresa" message="tns:IServiciosApp_NuevaEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/NuevaEmpresaResponse" message="tns:IServiciosApp_NuevaEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevaIncidencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/NuevaIncidencia" message="tns:IServiciosApp_NuevaIncidencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/NuevaIncidenciaResponse" message="tns:IServiciosApp_NuevaIncidencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/NuevoUsuario" message="tns:IServiciosApp_NuevoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/NuevoUsuarioResponse" message="tns:IServiciosApp_NuevoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEmpresa" message="tns:IServiciosApp_ActualizarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEmpresaResponse" message="tns:IServiciosApp_ActualizarEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEstadoEmpresa" message="tns:IServiciosApp_ActualizarEstadoEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEstadoEmpresaResponse" message="tns:IServiciosApp_ActualizarEstadoEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarUsuario" message="tns:IServiciosApp_ActualizarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarUsuarioResponse" message="tns:IServiciosApp_ActualizarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEstado" message="tns:IServiciosApp_ActualizarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/ActualizarEstadoResponse" message="tns:IServiciosApp_ActualizarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/EliminarEmpresa" message="tns:IServiciosApp_EliminarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/EliminarEmpresaResponse" message="tns:IServiciosApp_EliminarEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/EliminarUsuario" message="tns:IServiciosApp_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/EliminarUsuarioResponse" message="tns:IServiciosApp_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarIncidencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/EliminarIncidencia" message="tns:IServiciosApp_EliminarIncidencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/EliminarIncidenciaResponse" message="tns:IServiciosApp_EliminarIncidencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiciosApp/IniciarSesion" message="tns:IServiciosApp_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiciosApp/IniciarSesionResponse" message="tns:IServiciosApp_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="ServiciosApp" />
+</wsdl:definitions>

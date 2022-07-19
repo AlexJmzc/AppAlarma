@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +56,11 @@
     </Compile>
     <Compile Include="AlertaIncidencia.Designer.cs">
       <DependentUpon>AlertaIncidencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WCFServiciosApp\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="FormularioEmpresas.cs">
       <SubType>Form</SubType>
@@ -111,6 +121,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\WCFServiciosApp\ServiciosApp.wsdl" />
+    <None Include="Connected Services\WCFServiciosApp\ServiciosApp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WCFServiciosApp\ServiciosApp1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WCFServiciosApp\ServiciosApp2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entidades.Direcciones.datasource" />
+    <None Include="Properties\DataSources\Entidades.Empresa.datasource" />
+    <None Include="Properties\DataSources\Entidades.Incidencia.datasource" />
+    <None Include="Properties\DataSources\Entidades.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -133,6 +158,35 @@
       <Project>{e73b3e26-d1ff-45a0-b961-c089c134dec3}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WCFServiciosApp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WCFServiciosApp\ServiciosApp.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WCFServiciosApp\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WCFServiciosApp\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WCFServiciosApp\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OpenAPIs\ServiciosApp.svc">
+      <Namespace>App</Namespace>
+      <ClassName>Alarma</ClassName>
+      <CodeGenerator>NSwagCSharp</CodeGenerator>
+      <SourceUri>http://aplicacionesabrahm.somee.com/ServiciosApp.svc</SourceUri>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,11 +2,13 @@
 using Logica;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel.Activation;
 
 namespace WCFServiciosApp
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServiciosApp" en el código, en svc y en el archivo de configuración a la vez.
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione ServiciosApp.svc o ServiciosApp.svc.cs en el Explorador de soluciones e inicie la depuración.
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ServiciosApp : IServiciosApp
     {
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -20,6 +22,7 @@ namespace WCFServiciosApp
             return EmpresaLogica.DevolverListaEmpresas();
         }
 
+        
         //EMPRESA POR ID
         public Empresa DevolverEmpresa(int id)
         {
@@ -28,7 +31,7 @@ namespace WCFServiciosApp
 
         public List<Empresa> DevolverListaEmpresasEstado(string estado)
         {
-            return EmpresaLogica.DevolverListaEmpresasEstado(estado)
+            return EmpresaLogica.DevolverListaEmpresasEstado(estado);
         }
 
 

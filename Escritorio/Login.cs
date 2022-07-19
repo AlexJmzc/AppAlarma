@@ -1,14 +1,25 @@
 ﻿using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Logica;
+using Escritorio.WCFServiciosApp;
+using System.Net;
+using System.IO;
+using System.Text;
 
 namespace Escritorio
 {
     public partial class Login : Form
     {
+
+
+        ServiciosAppClient a = new ServiciosAppClient();
+
+
+
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void txtUsuario_Enter(object sender, System.EventArgs e)
@@ -83,12 +94,28 @@ namespace Escritorio
             {
                 if (txtClave.Text != "CONTRASEÑA")
                 {
-                    
+                    var nombre = txtUsuario.Text;
+                    var clave = txtClave.Text;
+
+
+                    //var resultado1 = a.IniciarSesion(nombre, clave);
                     var resultado = UsuarioLogica.IniciarSesion(txtUsuario.Text, txtClave.Text);
-                   
-                    if(resultado == true)
+                    //var resultado = a.IniciarSesion(nombre, clave);
+                    /*WebRequest myWebRequest = WebRequest.Create("http://aplicacionesabrahm.somee.com/ServiciosApp.svc/IniciarSesion?usuario=A123&clave=123");
+                    WebResponse myWebResponse = myWebRequest.GetResponse();
+                    Stream ReceiveStream = myWebResponse.GetResponseStream();
+                    Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+
+                    StreamReader readStream = new StreamReader(ReceiveStream, encode);
+
+                    var resultado = readStream.ReadLine();*/
+
+
+
+                    if (resultado == true)
                     {
                         var usuario = UsuarioLogica.DevolverUsuarioNombreUsu(txtUsuario.Text);
+                        //var usuario = a.DevolverUsuarioNombreUsu(txtUsuario.Text);
                         Principal mainMenu = new Principal(usuario);
                         mainMenu.Show();
                         mainMenu.FormClosed += Logout;

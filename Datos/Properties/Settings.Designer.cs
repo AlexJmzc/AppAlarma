@@ -26,7 +26,9 @@ namespace Datos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K2OF0QE;Initial Catalog=AppAlarma;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("workstation id=AppAlarma.mssql.somee.com;packet size=4096;user id=amiranda_SQLLog" +
+            "in_1;pwd=zn16w67ij1;data source=AppAlarma.mssql.somee.com;persist security info=" +
+            "False;initial catalog=AppAlarma")]
         public string ConexionBD {
             get {
                 return ((string)(this["ConexionBD"]));

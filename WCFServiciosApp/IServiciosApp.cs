@@ -17,12 +17,12 @@ namespace WCFServiciosApp
 
         //TODA LA LISTA DE EMPRESAS
         [OperationContract]
-        [WebGet(UriTemplate = "ListaEmpresas",
+        [WebInvoke(UriTemplate = "ListaEmpresas", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
         List<Empresa> DevolverListaEmpresas();
 
-
+        
         //EMPRESA POR ID
         [OperationContract]
         [WebInvoke(UriTemplate = "DevolverEmpresa?id={id}", Method = "GET",
@@ -45,7 +45,7 @@ namespace WCFServiciosApp
 
         //LISTA DE TODOS LOS USUARIOS
         [OperationContract]
-        [WebGet(UriTemplate = "ListaUsuarios",
+        [WebInvoke(UriTemplate = "ListaUsuarios", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
         List<Usuario> DevolverListaUsuarios();
@@ -96,7 +96,7 @@ namespace WCFServiciosApp
 
         //LISTA DE TODAS LAS INCIDENCIAS
         [OperationContract]
-        [WebGet(UriTemplate = "ListaIncidencias",
+        [WebInvoke(UriTemplate = "ListaIncidencias", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
         List<Incidencia> DevolverListaIncidencias();
@@ -194,7 +194,7 @@ namespace WCFServiciosApp
 
         //LISTA DE TODAS LAS DIRECCIONES
         [OperationContract]
-        [WebGet(UriTemplate = "ListaDirecciones",
+        [WebInvoke(UriTemplate = "ListaDirecciones", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json)]
         List<Direcciones> DevolverListaDirecciones();
@@ -259,7 +259,7 @@ namespace WCFServiciosApp
 
         //EMPRESA
         [OperationContract]
-        [WebInvoke(UriTemplate = "ActualizarEmpresa?idEmpresa={idEmpresa}& nombreEmpresa={nombreEmpresa}&direccionEmpresa={direccionEmpresa}" +
+        [WebInvoke(UriTemplate = "ActualizarEstadoEmpresa?idEmpresa={idEmpresa}& nombreEmpresa={nombreEmpresa}&direccionEmpresa={direccionEmpresa}" +
             "&coordenadasEmpresa={coordenadasEmpresa}&descripcionEmpresa={descripcionEmpresa}" +
             "&telefonoEmpresa={telefonoEmpresa}&estado={estado}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
@@ -323,7 +323,8 @@ namespace WCFServiciosApp
         [OperationContract]
         [WebInvoke(UriTemplate = "IniciarSesion?usuario={usuario}&clave={clave}", Method = "GET",
         RequestFormat = WebMessageFormat.Json,
-        ResponseFormat = WebMessageFormat.Json)]
+        ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare)]
         bool IniciarSesion(string usuario, string clave);  
         
     }

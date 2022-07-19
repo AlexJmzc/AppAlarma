@@ -258,4 +258,31 @@
         CkoAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAs56nHMe5vmrMv8N+y7/CfdLIy33Tys191szQfc/Dx33Mv8J9zL/Dfcy/w33Mv8N9zL/Dfcu+
+        wn7SyMx84+DgRrKXsp7Kttz7wane/8Cn3f/EreP/xK3j/8ew6P/CquH/wKje/7+n3f+/p9z/wKje/8Cn
+        3v/Fr9//y7jS/8q8xK2vkq2Pwqjx+6R9/P+ie/z/oXrp/6qJvP+he97/oXn3/5947v+nhMn/pYHK/6J6
+        +v+ievv/sY/8/8ey1++4o65Zhl1uJLWYy8Sqhfn/nXT8/5tz3P+nhpj/rI2e/6aEqf+nh6H/qouX/597
+        sv+cc/f/n3f7/7ea6v+4obaYwLCqCP///wCffpdXuJrl8KF6/f+ddd7/tpqo/6OClv+bdpr/oH2Y/7OW
+        ov+oh7r/nHL3/62L+P+7o8fYsp2jKrWgqgB5TWEAZTQ8C7CSuJ+xkPb/nXTu/6J+x/+mhLD/vKOj/7OX
+        pP+gfL//nnjW/6N8+/+8od/5tZ6sbAAAdwC4p6sAXjA9AKF9lgCSbX8xt5rW2qaA/P+ZcN7/ybOy/9/R
+        s//h1Lj/poO8/5xz+P+0lfH/uaK8trupqRLEtLoAAAAAAAAAAABPFiIAAAAAAaeIpXW0lez5qojL/9G/
+        qf/e0LT/08Go/8OstP+ngur/vaPT6bagp0Kmh5gAxbm8AAAAAAAAAAAAAAAAAIJXagCAVWEYs5bGvLGT
+        2f/Uw77/9vDP/+rgx/+8osX/uJvf/7ihtIzMx6sE1c3JAAAAAAAAAAAAAAAAAAAAAAAAAAAAyrTXAJx7
+        kUu3mt3sqIXe/7KUyv+si9D/sI/o/7ujxdC3o6QirJSdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFG
+        VgBTIR0IrY+zkrKR8/6ccvr/pH37/7yh2/a2oKxeqo2rAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAooGaAI1ndim3mtLSrYn8/7eZ7v+5ormotKSfDbemrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAFciMQD///8AooGfZsau4fa+psvasZmiNa2TowAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAjWd7AIFXaA6igZlcn32TOZeBawGfgowAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAACAAQAAgAMAAMADAADABwAA4AcAAPAPAADwHwAA+B8AAPw/
+        AAD8PwAA//8AAA==
+</value>
+  </data>
 </root>

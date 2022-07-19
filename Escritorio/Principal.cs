@@ -163,9 +163,16 @@ namespace Escritorio
             else
             {
                 Incidencia i = IncidenciaLogica.DevolverListaIncidencias().Last();
-              
+                Empresa empresa = EmpresaLogica.DevolverEmpresa(i.ID_EMPRESA);
+
                 AlertaIncidencia a = new AlertaIncidencia(i);
                 a.Show();
+
+                notifyIcon1.Text = "Nueva Alerta";
+                notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipTitle = "Nueva Alerta";
+                notifyIcon1.BalloonTipText = "Alerta de " + empresa.NOMBRE_EMP;
+                notifyIcon1.ShowBalloonTip(50);
                 
             }
 
