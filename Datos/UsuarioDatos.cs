@@ -19,11 +19,11 @@ namespace Datos
             cmd.CommandText = @"SELECT [NOMBRE_USU]
                               ,[CLAVE_USU]
                               FROM [dbo].[Usuarios]
-                              WHERE NOMBRE_USU = @usuario AND CLAVE_USU = @clave AND ROL_USU = @rol";
+                              WHERE NOMBRE_USU = @usuario AND CLAVE_USU = @clave";
 
             cmd.Parameters.AddWithValue("usuario", usuario);
             cmd.Parameters.AddWithValue("clave", clave);
-            cmd.Parameters.AddWithValue("rol", "Administrador");
+
 
             using (var dr = cmd.ExecuteReader())
             {

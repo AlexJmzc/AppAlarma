@@ -661,14 +661,15 @@ namespace Datos
                                  ,[NOMBRE_EMPRESA]
                                  ,[COORDENADAS]
                                  ,[FECHA_INC]
-                                 ,[ESTADO_INC]
+                                 ,[ESTADO_INC])
                                 VALUES
                                 (@idUsuario
                                 ,@idEmpresa
                                 ,@nombreEmpresa
                                 ,@Coordenadas
                                 ,@fecha
-                                ,@estado)";
+                                ,@estado);
+                                SELECT SCOPE_IDENTITY();";
 
                 cmd.Parameters.AddWithValue("@idUsuario", incidencia.ID_USU);
                 cmd.Parameters.AddWithValue("@idEmpresa", incidencia.ID_EMPRESA);

@@ -5,6 +5,8 @@ using Escritorio.WCFServiciosApp;
 using System.Net;
 using System.IO;
 using System.Text;
+using System.Deployment.Application;
+using System;
 
 namespace Escritorio
 {
@@ -156,5 +158,12 @@ namespace Escritorio
             this.Show();
             //txtUsuario.Focus();
         }
+
+        private void btnActualizar_Click(object sender, System.EventArgs e)
+        {
+            
+        }
+
+       
     }
 }
